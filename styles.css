@@ -1,4 +1,5 @@
 
+/* General Page Styling */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,7 +7,7 @@ body {
     color: white;
 }
 
-
+/* Navigation Bar */
 nav {
     background: #111;
     padding: 15px 0;
@@ -37,7 +38,7 @@ nav ul li a:hover {
     text-shadow: 0 0 10px #00ffaa;
 }
 
-
+/* Section Styling */
 .section {
     padding: 80px 15%;
     text-align: center;
@@ -51,25 +52,13 @@ nav ul li a:hover {
     text-shadow: 0 0 10px #00d9ff;
 }
 
-.section p {
-    font-size: 20px;
-    line-height: 1.6;
-    color: #e0e0e0;
-}
-
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 .changeable {
     font-size: 20px;
     color: #ffffff;
     margin-bottom: 18px;
 }
 
-
+/* Spaceship Icon */
 .spaceship {
     font-size: 80px;
     color: #00d9ff;
@@ -78,9 +67,35 @@ nav ul li a:hover {
     text-shadow: 0 0 20px #00d9ff, 0 0 40px #00aaff;
 }
 
-
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-15px); }
     100% { transform: translateY(0px); }
+}
+
+/* DETAILS PAGE GRID */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 50px;
+    gap: 40px;
+}
+
+.info-images img {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00d9ff;
+}
+
+.info-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
