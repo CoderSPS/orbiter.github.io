@@ -1,0 +1,86 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: white;
+}
+
+
+nav {
+    background: #111;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: #00d9ff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00ffaa;
+    text-shadow: 0 0 10px #00ffaa;
+}
+
+
+.section {
+    padding: 80px 15%;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.section h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #00d9ff;
+    text-shadow: 0 0 10px #00d9ff;
+}
+
+.section p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.changeable {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 18px;
+}
+
+
+.spaceship {
+    font-size: 80px;
+    color: #00d9ff;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+    text-shadow: 0 0 20px #00d9ff, 0 0 40px #00aaff;
+}
+
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
