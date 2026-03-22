@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbiter • AI Chatbox</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">ORBITER</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="game.html">Game</a></li>
+            <li><a href="details.html">Information</a></li>
+            <li><a href="abs.html">About Us</a></li>
+            <li><a href="cb.html" class="active">Chatbox</a></li>
+        </ul>
+    </nav>
+
+    <!-- CHATBOX CONTAINER -->
+    <div id="chat-wrapper">
+        <h1 class="chat-title">Orbiter AI Terminal</h1>
+
+        <div id="chat-container">
+            <div id="chat-log"></div>
+
+            <div id="chat-input">
+                <input id="userInput" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI CHAT SCRIPT -->
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById("userInput");
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            input.value = "";
+            addMessage("You", msg);
+
+            try {
+                const response = await fetch("http://localhost:3000/api/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: msg })
+                });
+
+                const data = await response.json();
+                const aiText = data.reply || "Error: No response from AI";
+
+                addMessage("AI", aiText);
+
+            } catch (err) {
+                addMessage("AI", "⚠️ Connection error — backend not reachable.");
+                console.error(err);
+            }
+        }
+
+        function addMessage(sender, text) {
+            const log = document.getElementById("chat-log");
+            log.innerHTML += `<p><b>${sender}:</b> ${text}</p>`;
+            log.scrollTop = log.scrollHeight;
+        }
+    </script>
+
+</body>
+</html>
